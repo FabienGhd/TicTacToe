@@ -41,6 +41,11 @@ public class TicTacToe {
 		return strBoard;
 	}
 	
+	public boolean isGamerOver() {
+		
+		//draw
+		return false;
+	}
 	//logic of the game
 	public void setPlay(int i, int j, String player) {
 		
