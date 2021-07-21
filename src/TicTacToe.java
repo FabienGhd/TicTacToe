@@ -16,6 +16,10 @@ public class TicTacToe {
 	
 	public void initializeBoard() {
 		//set the board to all empty squares
-		
+		for(int i = 0; i < rows; i++) {
+			for(int j = 0; j < cols; j++) {
+				board[i][j] = "   ";
+			}
+		}
 	}
 }
