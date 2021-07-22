@@ -43,11 +43,43 @@ public class TicTacToe {
 	
 	public boolean isGamerOver() {
 		
+		//checking rows
+		for(int i = 0; i < rows; i++) {
+			if(!board[i][0].equals(empty) 
+				&& board[i][1].equals(board[i][0]) 
+				&& board[i][2].equals(board[i][1])) {
+				return true;
+			}
+		}
+		
+		//checking diagonals 
+		//from right to left
+		if(!board[0][2].equals(empty) 
+				&& board[1][1].equals(board[0][2])
+				&& board[2][0].equals(board[1][1])) {
+			return true;
+		}
+		//from left to right
+		if(!board[0][0].equals(empty) && board[1][1].equals(board[0][0]) && board[2][2].equals(board[1][1])) {
+			return true;
+		}
+		
+		//checking columns
+		for(int j = 0; j < cols; j++) {
+			if(!board[0][j].equals(empty) && board[1][j].equals(board[0][j]) && board[2][j].equals(board[1][j])) {
+				return true;
+			}
+		}
+		
+		
 		//draw
 		return false;
 	}
+	
 	//logic of the game
-	public void setPlay(int i, int j, String player) {
-		
+	public void setPlay(int i, int j, String mark_player) {
+		if(board[i][j].equals(empty)) {
+			board[i][j] = " " + mark_player + " ";
+		}
 	}
 }
