@@ -1,10 +1,13 @@
 import java.util.Scanner;
 
 public class Main {
+	
+	
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		
 		
 		TicTacToe game = new TicTacToe();
 		
@@ -12,9 +15,9 @@ public class Main {
 		
 		String player = "X";
 		boolean isCorrect = false;
-		boolean errorDetected = false;
-		int errorCounter = 0;
+		boolean errorDetected = false;	
 		
+	
 		do {
 			System.out.println(game.printBoard());
 			
@@ -24,24 +27,19 @@ public class Main {
 				
 				//managing errors
 				while(!isCorrect) {
-				if(i < 0 || i > 2) {
+				if(i < 0 || i > 2 || Character.isLetter(i)) {
 					errorDetected = true;
-					errorCounter++;
-					if(errorCounter > 1) {
-						System.out.println("Damn, you got a goldfish memory! Just kidding, try again (0, 1 or 2): ");
-						i = sc.nextInt();
-					} else {
+					
 					System.out.println("The board ranges from row 0 to row 2! Please pick a number that fits the board (0, 1 or 2): ");
 					i = sc.nextInt();
-					}
+	
 				} else {
 					isCorrect = true;
 				}
+				} //end while loop
 				
-				
-				if(errorDetected = true) {
+				if(errorDetected) {
 					System.out.println("Much better!");
-				}
 				}
 				isCorrect = false;
 				errorDetected = false;
@@ -54,14 +52,14 @@ public class Main {
 				while(!isCorrect) {
 				if(j < 0 || j > 2) {
 					errorDetected = true;
-					errorCounter++;
 					System.out.println("The board ranges from column 0 to column 2! Please pick a number that fits the board (0, 1 or 2): ");
-				
+					i = sc.nextInt();
 				} else {
 					isCorrect = true;
 				}
-				}
-				if(errorDetected = true) {
+				} //end while loop
+				
+				if(errorDetected) {
 					System.out.println("Much better!");
 				}
 				isCorrect = false;
