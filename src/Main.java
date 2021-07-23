@@ -2,7 +2,13 @@ import java.util.Scanner;
 
 public class Main {
 	
-	
+	public static boolean isDigit(int num) {
+		for(int i = 0; i < 10; i++) {
+			if(num == i) {
+				return true;
+			}
+		} return false;
+	}
 
 	public static void main(String[] args) {
 		
@@ -27,7 +33,7 @@ public class Main {
 				
 				//managing errors
 				while(!isCorrect) {
-				if(i < 0 || i > 2 || Character.isLetter(i)) {
+				if(i < 0 || i > 2) {
 					errorDetected = true;
 					
 					System.out.println("The board ranges from row 0 to row 2! Please pick a number that fits the board (0, 1 or 2): ");
@@ -71,7 +77,8 @@ public class Main {
 					System.out.println(game.printBoard() + "\n" + "The player with the following mark: " + player + ", won the game!");
 					break;
 				}
-			
+				
+			//change the player
 			if(player == "X") {
 				player = "O";
 			} else {
